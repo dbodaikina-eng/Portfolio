@@ -1,0 +1,49 @@
+/* ============================================================
+   vibe — Brand colors (semantic layer)
+   ------------------------------------------------------------
+   Base palette + Figma Variables live in fig-tokens.css. This file
+   adds the *brand-legible* aliases the vibe product actually uses:
+   the red wordmark, the electric-blue primary, the like/dislike
+   hearts, the candy backdrop colors and the glassy button fills.
+   ============================================================ */
+
+:root {
+  /* ---- Core brand ---- */
+  --vibe-red:            rgb(240, 63, 53);   /* the "vibe" wordmark */
+  --vibe-blue:           rgb(12, 105, 255);  /* primary action / accent */
+  --vibe-blue-bright:    rgb(0, 117, 254);
+  --vibe-blue-cyan:      rgb(116, 235, 255); /* gradient tail */
+  --vibe-yellow:         rgb(255, 204, 0);   /* signature backdrop */
+  --vibe-yellow-deep:    rgb(255, 228, 0);
+  --vibe-heart:          rgb(255, 45, 146);  /* the "like" heart */
+  --vibe-heart-soft:     rgb(255, 143, 154);
+
+  /* ---- Candy backdrops (collage canvas) ---- */
+  --vibe-bg-yellow:      rgb(255, 214, 0);
+  --vibe-bg-lilac:       rgb(228, 226, 252);
+  --vibe-bg-mint:        rgb(157, 181, 156);
+  --vibe-bg-paper:       rgb(234, 234, 234);
+
+  /* ---- Ink ---- */
+  --vibe-ink:            rgb(10, 12, 17);     /* primary text */
+  --vibe-ink-60:         rgba(10, 12, 17, 0.6);
+  --vibe-ink-30:         rgba(10, 12, 17, 0.3);
+  --vibe-surface:        rgb(255, 255, 255);
+  --vibe-surface-2:      rgb(244, 244, 244);
+  --vibe-hairline:       rgb(231, 231, 231);
+
+  /* ---- Status ---- */
+  --vibe-success:        rgb(64, 155, 63);
+  --vibe-danger:         rgb(223, 36, 36);
+  --vibe-warning:        rgb(246, 149, 74);
+
+  /* ---- Semantic aliases used by components ---- */
+  --text-1:              var(--vibe-ink);
+  --text-2:              var(--vibe-ink-60);
+  --text-3:              var(--vibe-ink-30);
+  --text-on-accent:      rgb(255, 255, 255);
+  --surface-card:        var(--vibe-surface);
+  --surface-sunken:      var(--vibe-surface-2);
+  --accent:              var(--vibe-blue);
+  --hairline:            var(--vibe-hairline);
+}

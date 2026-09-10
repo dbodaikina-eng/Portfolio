@@ -1,0 +1,32 @@
+/* ============================================================
+   vibe — Fonts
+   ------------------------------------------------------------
+   Brand display/button face in the Figma file is "Rooftop Dodo"
+   (a rounded, friendly custom display face). It is NOT publicly
+   available, so we substitute Google "Fredoka" (rounded geometric,
+   very close in spirit). SWAP THIS for the licensed Rooftop Dodo
+   web font when available — see readme.md › Visual Foundations.
+
+   Body/UI text is Apple "SF Pro". We render it through the native
+   system stack so Apple devices show the real face; elsewhere it
+   falls back to a clean neutral sans.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Display / headings / buttons — the playful brand voice */
+  --vibe-font-display: 'Fredoka', 'SF Pro Rounded', ui-rounded, system-ui, sans-serif;
+
+  /* UI text — SF Pro via the native stack */
+  --vibe-font-text: 'SF Pro Text', -apple-system, BlinkMacSystemFont, 'SF Pro',
+    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --vibe-font-text-display: 'SF Pro Display', -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+
+  /* Bridge to Figma variable names */
+  --typography-family-heading: var(--vibe-font-display);
+  --typography-family-button: var(--vibe-font-display);
+  --typography-family-text: var(--vibe-font-text);
+  --typography-family-textdisplay: var(--vibe-font-text-display);
+}

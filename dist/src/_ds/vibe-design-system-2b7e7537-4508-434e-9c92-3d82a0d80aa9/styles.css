@@ -1,0 +1,10 @@
+/* ============================================================
+   vibe Design System — global entry point
+   Consumers link THIS file. It is an @import manifest only.
+   ============================================================ */
+
+@import './tokens/fig-tokens.css';   /* Figma Variables (colors, themes, scales) */
+@import './tokens/colors.css';       /* brand semantic colors */
+@import './tokens/fonts.css';        /* font families + webfont */
+@import './tokens/typography.css';   /* type scale */
+@import './tokens/effects.css';      /* radii, spacing, shadows, glass */

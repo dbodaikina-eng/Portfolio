@@ -1,0 +1,27 @@
+/* ============================================================
+   vibe — Type scale
+   ------------------------------------------------------------
+   The product is an iOS app: type is SF Pro at the standard iOS
+   sizes, with the rounded display face reserved for big playful
+   moments (button labels, hero numbers, onboarding titles).
+   ============================================================ */
+
+:root {
+  /* Display — Fredoka / Rooftop Dodo */
+  --vibe-text-hero:      700 48px/1.0  var(--vibe-font-display);
+  --vibe-text-title:     600 32px/1.05 var(--vibe-font-display);
+  --vibe-text-button:    600 18px/1.0  var(--vibe-font-display);
+
+  /* UI text — SF Pro */
+  --vibe-text-large:     600 22px/1.27 var(--vibe-font-text-display); /* nav title */
+  --vibe-text-body:      400 16px/1.25 var(--vibe-font-text);
+  --vibe-text-body-strong: 600 16px/1.25 var(--vibe-font-text);
+  --vibe-text-callout:   500 15px/1.33 var(--vibe-font-text);
+  --vibe-text-subhead:   500 14px/1.29 var(--vibe-font-text);
+  --vibe-text-footnote:  400 13px/1.38 var(--vibe-font-text);
+  --vibe-text-caption:   500 12px/1.33 var(--vibe-font-text);
+
+  /* Tracking */
+  --vibe-tracking-tight: -0.4px;
+  --vibe-tracking-snug:  -0.2px;
+}

@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="_ds/vibe-design-system-2b7e7537-4508-434e-9c92-3d82a0d80aa9/tokens/colors.css">
+<link rel="stylesheet" href="_ds/vibe-design-system-2b7e7537-4508-434e-9c92-3d82a0d80aa9/tokens/effects.css">
+<script src="_ds/vibe-design-system-2b7e7537-4508-434e-9c92-3d82a0d80aa9/_ds_bundle.js"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,700;1,700&amp;family=Space+Mono:wght@400;700&amp;display=swap">
+<script src="./image-slot.js"></script>
+<style>
+  body { margin: 0; overflow: hidden; background-color: #E8E2D9; -webkit-font-smoothing: antialiased; }
+  a { color: #0A0C11; text-decoration: none; }
+  a:hover { color: #F0533A; }
+  @media (hover:hover) and (pointer:fine) { * { cursor: none !important; } }
+  html[data-whale-off] * { cursor: auto !important; }
+  html[data-whale-off] #om-whale { display: none !important; }
+  @media (hover:none), (pointer:coarse) { #om-whale { display: none !important; } }
+  @media (max-width: 760px) {
+    body { overflow: auto; }
+    [data-m="root"] { height: auto !important; min-height: 100vh; overflow: visible !important; padding: 10px !important; gap: 10px !important; }
+    [data-m="header"] { padding: 12px 14px !important; gap: 12px !important; }
+    [data-m="role"] { display: none !important; }
+    [data-m="row"] { flex-direction: column !important; flex: none !important; gap: 8px !important; }
+    [data-m="panel"] { flex: none !important; margin: 0 !important; min-width: 0 !important; width: 100%; transition: none !important; }
+    [data-m="open"] { flex-direction: column !important; height: auto !important; }
+    [data-m="rail"] { width: 100% !important; height: auto !important; flex-direction: row !important; align-items: center !important; justify-content: space-between !important; padding: 14px 16px !important; gap: 12px; }
+    [data-m="rail-titlewrap"] { flex: 1 1 auto !important; padding: 0 !important; justify-content: flex-start !important; align-items: center !important; overflow: visible !important; }
+    [data-m="rail-title"] { writing-mode: horizontal-tb !important; transform: none !important; font-size: 17px !important; white-space: normal !important; }
+    [data-m="rail-num"] { font-size: 20px !important; }
+    [data-m="bento"] { flex: none !important; padding: 4px 14px 0 !important; }
+    [data-m="bento-abs"] { position: static !important; inset: auto !important; }
+    [data-m="bento-grid"] { height: auto !important; width: 100% !important; max-width: 340px !important; aspect-ratio: auto !important; }
+    [data-m="pad"] { padding: 16px 16px 20px !important; gap: 14px !important; justify-content: flex-start !important; }
+    [data-m="pad"] h2 { font-size: 30px !important; }
+    [data-m="pad"] p { max-width: none !important; }
+    [data-m="principles"] { flex-wrap: wrap !important; overflow: visible !important; }
+    [data-m="cols"] { grid-template-columns: minmax(0, 1fr) !important; gap: 4px !important; padding: 8px 0 !important; }
+    [data-m="stack"] { display: flex !important; flex-direction: column !important; padding: 14px 16px 18px !important; gap: 14px !important; height: auto !important; }
+    [data-m="media"] { height: auto !important; width: 100% !important; }
+    [data-m="case-head"] { grid-template-columns: minmax(0, 1fr) !important; gap: 12px !important; }
+    [data-m="summary"] { width: auto !important; height: auto !important; }
+    [data-m="metrics"] { flex-wrap: wrap !important; }
+    [data-m="metrics"] > div { flex: 1 1 calc(50% - 5px) !important; }
+    [data-m="clampless"] { max-height: none !important; }
+    [data-m="sheet"] { position: fixed !important; inset: 10px !important; z-index: 60 !important; border-radius: 2px !important; }
+  }
+</style>
+</helmet>
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><rect width="200" height="200" fill="#DDE3EA"/><g fill="#F0533A"><rect x="60" y="60" width="16" height="80" rx="1"/><rect x="84" y="60" width="16" height="80" rx="1"/><rect x="108" y="60" width="32" height="80" rx="1" fill="#0A0C11"/></g></svg></template>
+
+<div data-m="root" style="position: relative; height: 100vh; overflow: hidden; background-color: #DDE3EA; font-family: 'Space Mono', ui-monospace, monospace; color: #0A0C11; padding: 14px; box-sizing: border-box; display: flex; flex-direction: column; gap: 14px;">
+  <div style="position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden;">
+    <div style="position: absolute; left: -12%; top: -20%; width: 58%; height: 80%; border-radius: 50%; background: #F2E9DC; filter: blur(90px);"></div>
+    <div style="position: absolute; left: 30%; top: 10%; width: 50%; height: 70%; border-radius: 50%; background: #9BB6D6; filter: blur(110px); opacity: 0.9;"></div>
+    <div style="position: absolute; left: 38%; bottom: -30%; width: 46%; height: 66%; border-radius: 50%; background: #E9744A; filter: blur(110px); opacity: 0.5;"></div>
+    <div style="position: absolute; right: -10%; bottom: -14%; width: 42%; height: 60%; border-radius: 50%; background: #B7C7CF; filter: blur(90px);"></div>
+  </div>
+
+  <div style="position: absolute; inset: 0; z-index: 0; pointer-events: none; background-image: radial-gradient(120% 85% at 26% 6%, rgba(255,255,255,0.5), rgba(255,255,255,0) 60%);"></div>
+
+  <div style="background: linear-gradient(160deg, rgba(255,255,255,0.62) 0%, rgba(255,255,255,0.34) 55%, rgba(255,255,255,0.18) 100%); backdrop-filter: blur(22px) saturate(140%); -webkit-backdrop-filter: blur(22px) saturate(140%); box-shadow: inset 0 0 0 1px rgba(255,255,255,0.7), 0 0 0 1px rgba(255,255,255,0.25), 0 20px 50px -20px rgba(20,24,40,0.25); border-radius: 2px; padding: 18px 26px; position: relative; z-index: 1; display: flex; align-items: center; gap: clamp(16px, 2.6vw, 38px); min-width: 0;" data-m="header">
+    <div style="display: flex; align-items: center; gap: 10px; font-family: 'Archivo', sans-serif; font-weight: 700; font-size: clamp(19px, 1.9vw, 27px); white-space: nowrap; letter-spacing: -0.5px;">
+      <span>Daria Bodaikina</span>
+    </div>
+    <div style="margin-left: auto; display: flex; align-items: center; gap: clamp(10px, 1.5vw, 22px); flex: 0 0 auto;">
+      <div data-m="role" style="font-size: clamp(10.5px, 1.05vw, 16px);">Senior product designer</div>
+      <a href="mailto:d.bodaikina@gmail.com" onClick="{{ openContact }}" style="display: inline-block; text-decoration: none; background: #F65A3C; color: #fff; font-size: clamp(11px, 1.1vw, 17px); padding: clamp(9px, 1vw, 14px) clamp(13px, 1.5vw, 22px); border-radius: 2px; white-space: nowrap; cursor: pointer; transition: transform 160ms ease;" style-hover="transform: scale(1.03)">Contact me</a>
+    </div>
+  </div>
+
+  <div data-m="row" style="position: relative; z-index: 1; display: flex; gap: 0; align-items: stretch; flex: 1 1 auto; min-height: 0;">
+    <sc-for list="{{ panels }}" as="p" hint-placeholder-count="5">
+      <div data-m="panel" onClick="{{ p.open }}" style="flex-grow: {{ p.grow }}; margin: 0 {{ p.gapPx }}; flex-basis: 0; flex-shrink: 1; min-width: clamp(62px, 6.4vw, 92px); background: transparent; border-radius: 2px; overflow: hidden; cursor: pointer; transition: flex-grow 620ms cubic-bezier(.65,.05,.36,1); display: flex;">
+
+        <sc-if value="{{ p.collapsed }}" hint-placeholder-val="{{ true }}">
+          <div data-m="rail" style="width: 100%; height: 100%; position: relative; background: linear-gradient(160deg, rgba(255,255,255,0.62) 0%, rgba(255,255,255,0.34) 55%, rgba(255,255,255,0.18) 100%); backdrop-filter: blur(22px) saturate(140%); -webkit-backdrop-filter: blur(22px) saturate(140%); box-shadow: inset 0 0 0 1px rgba(255,255,255,0.7), 0 0 0 1px rgba(255,255,255,0.25), 0 20px 50px -20px rgba(20,24,40,0.25); display: flex; flex-direction: column; align-items: center; padding: 20px 0 26px; box-sizing: border-box;">
+                        <div data-m="rail-titlewrap" style="flex: 1 1 auto; display: flex; align-items: flex-start; justify-content: center; padding-top: 4px; overflow: hidden;">
+              <div data-m="rail-title" style="writing-mode: vertical-rl; transform: rotate(180deg); font-family: 'Archivo', sans-serif; font-weight: 700; font-size: clamp(15px, 1.45vw, 23px); letter-spacing: -0.2px; white-space: nowrap;">{{ p.title }}</div>
+            </div>
+            <div data-m="rail-num" style="font-family: 'Archivo', sans-serif; font-weight: 700; font-size: clamp(24px, 2.4vw, 34px); color: #F0533A; line-height: 1; flex: 0 0 auto;">{{ p.num }}</div>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ p.expanded }}" hint-placeholder-val="{{ false }}">
+          <div style="position: relative; display: flex; width: 100%; height: 100%; gap: 0; background: linear-gradient(160deg, rgba(255,255,255,0.62) 0%, rgba(255,255,255,0.34) 55%, rgba(255,255,255,0.18) 100%); backdrop-filter: blur(22px) saturate(140%); -webkit-backdrop-filter: blur(22px) saturate(140%); box-shadow: inset 0 0 0 1px rgba(255,255,255,0.7), 0 0 0 1px rgba(255,255,255,0.25), 0 20px 50px -20px rgba(20,24,40,0.25); border-radius: inherit; overflow: hidden;" data-m="open"><div data-m="rail" style="width: clamp(62px, 6.4vw, 92px); flex: 0 0 auto; height: 100%; background: transparent; display: flex; flex-direction: column; align-items: center; padding: 20px 0 26px; box-sizing: border-box;">
+                        <div data-m="rail-titlewrap" style="flex: 1 1 auto; display: flex; align-items: flex-start; justify-content: center; padding-top: 4px; overflow: hidden;">
+              <div data-m="rail-title" style="writing-mode: vertical-rl; transform: rotate(180deg); font-family: 'Archivo', sans-serif; font-weight: 700; font-size: clamp(15px, 1.45vw, 23px); letter-spacing: -0.2px; white-space: nowrap;">{{ p.title }}</div>
+            </div>
+            <div data-m="rail-num" style="font-family: 'Archivo', sans-serif; font-weight: 700; font-size: clamp(24px, 2.4vw, 34px); color: #F0533A; line-height: 1; flex: 0 0 auto;">{{ p.num }}</div>
+          </div>
+            <sc-if value="{{ p.isAbout }}" hint-placeholder-val="{{ true }}">
+            
+            <div data-m="bento" style="flex: 0 0 44%; min-width: 0; min-height: 0; position: relative;">
+              <div data-m="bento-abs" style="position: absolute; inset: clamp(14px, 1.6vw, 24px); display: flex; align-items: center; justify-content: center;">
+                <div data-m="bento-grid" style="height: 566px; max-width: 100%; aspect-ratio: 0.72; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; align-items: center; justify-content: center; width: 236px">
+                  <div style="display: flex; flex-direction: column; gap: 8px; min-width: 0;">
+                    <div style="width: 100%; aspect-ratio: 189 / 266; border-radius: 2px; overflow: hidden; background-image: url(arch3.webp); background-size: cover; background-position: center; background-repeat: no-repeat;"></div>
+                    <div style="width: 100%; aspect-ratio: 189 / 266; border-radius: 2px; overflow: hidden; background-image: url(arch2.webp); background-size: cover; background-position: center; background-repeat: no-repeat;"></div>
+                  </div>
+                  <div style="display: flex; flex-direction: column; gap: 8px; min-width: 0;">
+                    <div style="width: 100%; aspect-ratio: 156 / 208; border-radius: 2px; overflow: hidden; background-image: url(arch1.webp); background-size: cover; background-position: center; background-repeat: no-repeat;"></div>
+                    <div style="width: 100%; aspect-ratio: 303 / 454; border-radius: 2px; overflow: hidden; background-image: url(featured.webp); background-size: cover; background-position: center; background-repeat: no-repeat;"></div>
+                  </div>
+                </div>
+              </div>
+            </div><div data-m="pad" style="flex: 1 1 auto; min-width: 0; min-height: 0; padding: clamp(20px, 2.6vw, 44px) clamp(22px, 3vw, 52px) clamp(20px, 2.6vw, 40px); box-sizing: border-box; display: flex; flex-direction: column; justify-content: center; gap: clamp(14px, 1.6vw, 24px); overflow: hidden;">
+              <h2 style="margin: 0; font-family: 'Archivo', sans-serif; font-weight: 700; font-size: clamp(26px, 3vw, 52px); line-height: 1.02; letter-spacing: -0.03em; text-wrap: pretty; overflow-wrap: anywhere;">{{ p.title }}</h2>
+              <p style="margin: 0; font-size: clamp(12.5px, 1vw, 17px); line-height: 1.45; letter-spacing: -0.01em; max-width: 880px; min-height: 0; overflow-y: auto; scrollbar-width: thin; scrollbar-color: rgba(10,12,17,0.25) transparent; text-wrap: pretty; font-weight: 500">{{ p.body }}</p>
+              <div style="display: flex; flex-wrap: wrap; gap: 6px 20px; font-size: clamp(12px, 0.95vw, 15px); line-height: 1.4;">
+                <a href="mailto:d.bodaikina@gmail.com" style="color: #0A0C11; text-decoration: underline; text-decoration-color: rgba(10,12,17,0.35); text-underline-offset: 3px;">d.bodaikina@gmail.com</a>
+                <a href="https://t.me/bodaikina" style="color: #F0533A; text-decoration: underline; text-decoration-color: rgba(240,83,58,0.4); text-underline-offset: 3px;">telegram: @bodaikina</a>
+              </div>
+            </div>
+            </sc-if>
+            <sc-if value="{{ p.isQuote }}" hint-placeholder-val="{{ false }}">
+            <div data-m="pad" style="flex: 1 1 auto; min-width: 0; min-height: 0; padding: clamp(20px, 2.6vw, 40px) clamp(24px, 3.4vw, 56px) clamp(20px, 2.6vw, 40px); box-sizing: border-box; display: flex; flex-direction: column; gap: clamp(16px, 2vw, 32px); overflow: hidden;">
+              <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 16px; font-size: clamp(10px, 0.8vw, 12px); letter-spacing: 0.16em; text-transform: uppercase;">
+                <span>{{ p.title }}</span>
+                <span style="color: rgba(10,12,17,0.55);">Principles</span>
+              </div>
+              <div style="min-height: 0; flex: 1 1 auto; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: clamp(16px, 2vw, 30px);">
+                <h2 style="margin: 0; max-width: 11ch; font-family: 'Archivo', sans-serif; font-weight: 700; font-size: clamp(40px, 5.6vw, 104px); line-height: 0.92; letter-spacing: -0.04em; text-wrap: balance;">Design has to stay <em style="font-style: italic; color: #F0533A;">closer to execution</em></h2>
+                <p style="margin: 0; width: min(100%, 44em); font-size: clamp(12.5px, 1vw, 16px); line-height: 1.45; letter-spacing: -0.01em; text-wrap: pretty;">Product design is moving faster now. With AI, shorter product bets and faster engineering cycles, the distance between a decision and a shipped screen is days, not quarters.</p>
+                <div data-m="principles" style="display: flex; flex-wrap: nowrap; align-items: baseline; gap: 12px; font-size: clamp(11px, 0.9vw, 15px); line-height: 1.3; letter-spacing: -0.01em; min-width: 0; overflow: hidden;">
+                  <span style="white-space: nowrap;">Shorter product bets</span><span aria-hidden="true" style="color: #F0533A;">·</span>
+                  <span style="white-space: nowrap;">Tactical roadmaps</span><span aria-hidden="true" style="color: #F0533A;">·</span>
+                  <span style="white-space: nowrap;">Measurable outcomes</span>
+                </div>
+              </div>
+            </div>
+            </sc-if>
+            <sc-if value="{{ p.isBio }}" hint-placeholder-val="{{ false }}">
+            <div data-m="pad" style="flex: 1 1 auto; min-width: 0; min-height: 0; padding: clamp(20px, 2.6vw, 44px) clamp(24px, 3.4vw, 56px) clamp(20px, 2.6vw, 40px); box-sizing: border-box; display: flex; flex-direction: column; gap: clamp(16px, 2vw, 32px); overflow: hidden;">
+              <h2 style="margin: 0; font-family: 'Archivo', sans-serif; font-weight: 700; font-size: clamp(26px, 3vw, 52px); line-height: 1.02; letter-spacing: -0.03em; text-wrap: pretty;">{{ p.title }}</h2>
+              <div style="min-height: 0; overflow-y: auto; scrollbar-width: thin; scrollbar-color: rgba(10,12,17,0.25) transparent; display: flex; flex-direction: column; max-width: 1100px;">
+                <sc-for list="{{ p.bullets }}" as="b" hint-placeholder-count="5">
+                  <div data-m="cols" style="display: grid; grid-template-columns: 11ch minmax(0, 1fr); gap: clamp(16px, 2vw, 32px); align-items: baseline; padding: clamp(8px, 1vw, 14px) 0;">
+                    <div style="font-family: 'Space Mono', ui-monospace, monospace; font-weight: 700; font-size: clamp(12px, 0.9vw, 14px); letter-spacing: 0.08em; text-transform: uppercase; color: #F0533A;">{{ b.label }}</div>
+                    <p style="margin: 0; max-width: 64ch; font-size: clamp(13px, 1vw, 16px); line-height: 1.45; letter-spacing: -0.01em; text-wrap: pretty;">{{ b.text }}</p>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+            </sc-if>
+            <sc-if value="{{ p.isCase }}" hint-placeholder-val="{{ false }}">
+            <div data-m="stack" style="flex: 1 1 auto; min-width: 0; min-height: 0; position: relative; display: grid; grid-template-columns: minmax(0, 1fr); grid-template-rows: minmax(0, 1fr) auto; padding: clamp(14px, 1.6vw, 24px) clamp(20px, 2.6vw, 40px) clamp(18px, 2.2vw, 32px); box-sizing: border-box; gap: clamp(14px, 1.6vw, 22px);">
+              <div style="min-height: 0; display: flex; justify-content: center; align-items: center;">
+                <div data-m="media" style="height: 100%; max-width: 100%; aspect-ratio: 5 / 4;"><sc-if value="{{ p.hasMedia }}" hint-placeholder-val="{{ false }}"><div style="width: 100%; height: 100%; border-radius: 2px; background-size: contain; background-repeat: no-repeat; background-position: center; background-image: {{ p.mediaCss }};"></div></sc-if><sc-if value="{{ p.noMedia }}" hint-placeholder-val="{{ true }}"><image-slot id="{{ p.slotId }}" shape="rounded" radius="2" placeholder="{{ p.slotHint }}" style="width: 100%; height: 100%;"></image-slot></sc-if></div>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: clamp(14px, 1.6vw, 22px);">
+                <div data-m="case-head" style="display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: clamp(16px, 2vw, 32px); align-items: flex-start">
+                <div style="display: flex; flex-direction: column; gap: 10px; min-width: 0;">
+                  <h2 style="margin: 0; font-family: 'Archivo', sans-serif; font-weight: 700; font-size: clamp(24px, 2.4vw, 40px); line-height: 1.05; letter-spacing: -0.8px; text-wrap: pretty; overflow-wrap: anywhere;">{{ p.title }}</h2>
+                  <p style="margin: 0; font-size: clamp(13px, 1vw, 16px); line-height: 1.45; letter-spacing: -0.01em; text-wrap: pretty; max-width: 60ch;" data-m="summary">{{ caseSummary }}</p>
+                  
+                </div><div onClick="{{ openSheet }}" style="display: inline-flex; align-items: center; gap: 10px; align-self: start; margin-top: 0.15em; white-space: nowrap; background: #0A0C11; color: #fff; padding: 10px 16px; border-radius: 2px; font-size: clamp(12px, 0.95vw, 15px); cursor: pointer; transition: transform 160ms ease;" style-hover="transform: scale(1.03)">Read the full story <span aria-hidden="true">→</span></div>
+                
+                </div>
+                <div data-m="metrics" style="display: flex; gap: 10px;">
+                  <sc-for list="{{ caseMetrics }}" as="m" hint-placeholder-count="3">
+                    <div style="flex: 1 1 0; min-width: 0; padding: 10px 12px; background: rgba(255,255,255,0.18); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); box-shadow: inset 0 0 0 1px rgba(255,255,255,0.45); border-radius: 2px; display: flex; flex-direction: column; gap: 4px; align-items: flex-start;">
+                      <div style="font-family: 'Archivo', sans-serif; font-weight: 700; font-size: clamp(20px, 1.8vw, 30px); line-height: 1; color: #F0533A; white-space: nowrap;">{{ m.value }}</div>
+                      <div style="font-size: clamp(11px, 0.85vw, 13px); line-height: 1.35; color: rgba(10,12,17,0.72);">{{ m.label }}</div>
+                    </div>
+                  </sc-for>
+                </div>
+              </div>
+              <sc-if value="{{ sheetOpen }}" hint-placeholder-val="{{ false }}">
+                <div data-m="sheet" style="position: absolute; inset: 0; z-index: 3; background: linear-gradient(160deg, rgba(255,255,255,0.96) 0%, rgba(255,255,255,0.9) 55%, rgba(255,255,255,0.86) 100%); backdrop-filter: blur(40px) saturate(120%); -webkit-backdrop-filter: blur(40px) saturate(120%); box-shadow: inset 0 0 0 1px rgba(255,255,255,0.7); border-radius: inherit; padding: clamp(20px, 2.4vw, 36px) clamp(20px, 2.6vw, 40px); box-sizing: border-box; display: flex; flex-direction: column; gap: clamp(18px, 2.2vw, 32px); overflow-y: auto; scrollbar-width: thin; scrollbar-color: rgba(10,12,17,0.25) transparent;">
+                  <div style="display: flex; align-items: center; justify-content: space-between; gap: 20px;">
+                    <h2 style="margin: 0; font-family: 'Archivo', sans-serif; font-weight: 700; font-size: clamp(24px, 2.4vw, 40px); line-height: 1.05; letter-spacing: -0.8px; text-wrap: pretty; overflow-wrap: anywhere;">{{ p.title }}</h2>
+                    <div onClick="{{ closeSheet }}" role="button" aria-label="Close" style="flex: 0 0 auto; width: 40px; height: 40px; display: grid; place-items: center; border-radius: 2px; cursor: pointer; font-size: 20px; line-height: 1;" style-hover="background: rgba(10,12,17,0.06)">✕</div>
+                  </div>
+                  <div data-m="metrics" style="display: flex; gap: 10px;">
+                    <sc-for list="{{ caseMetrics }}" as="m" hint-placeholder-count="3">
+                      <div style="flex: 1 1 0; min-width: 0; padding: 12px 14px; background: rgba(255,255,255,0.18); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); box-shadow: inset 0 0 0 1px rgba(255,255,255,0.45); border-radius: 2px; display: flex; flex-direction: column; gap: 4px;">
+                        <div style="font-family: 'Archivo', sans-serif; font-weight: 700; font-size: clamp(20px, 1.8vw, 30px); line-height: 1; color: #F0533A; white-space: nowrap;">{{ m.value }}</div>
+                        <div style="font-size: clamp(11px, 0.85vw, 13px); line-height: 1.35; color: rgba(10,12,17,0.72);">{{ m.label }}</div>
+                      </div>
+                    </sc-for>
+                  </div>
+                  <div style="display: flex; flex-direction: column;">
+                    <sc-for list="{{ caseSections }}" as="s" hint-placeholder-count="3">
+                      <div data-m="cols" style="display: grid; grid-template-columns: 11ch minmax(0, 1fr); gap: clamp(16px, 2vw, 32px); align-items: baseline; padding: clamp(8px, 1vw, 14px) 0;">
+                        <div style="font-family: 'Space Mono', ui-monospace, monospace; font-weight: 700; font-size: clamp(12px, 0.9vw, 14px); letter-spacing: 0.08em; text-transform: uppercase; color: #F0533A;">{{ s.label }}</div>
+                        <p style="margin: 0; max-width: 72ch; font-size: clamp(13px, 1vw, 16px); line-height: 1.45; letter-spacing: -0.01em; text-wrap: pretty;">{{ s.text }}</p>
+                      </div>
+                    </sc-for>
+                  </div>
+                </div>
+              </sc-if>
+            </div>
+            </sc-if>
+            <sc-if value="{{ p.stacked }}" hint-placeholder-val="{{ false }}">
+            <div data-m="stack" style="flex: 1 1 auto; min-width: 0; min-height: 0; display: grid; grid-template-columns: minmax(0, 1fr); grid-template-rows: minmax(0, 1fr) auto; padding: clamp(14px, 1.6vw, 24px) clamp(20px, 2.6vw, 40px) clamp(18px, 2.2vw, 32px); box-sizing: border-box; gap: clamp(14px, 1.6vw, 22px);">
+              <div style="min-height: 0; display: flex; justify-content: center; align-items: center;">
+                <div data-m="media" style="height: 100%; max-width: 100%; aspect-ratio: 5 / 4;">
+                  <sc-if value="{{ p.hasMedia }}" hint-placeholder-val="{{ false }}"><div style="width: 100%; height: 100%; border-radius: 2px; background-size: contain; background-repeat: no-repeat; background-position: center; background-image: {{ p.mediaCss }};"></div></sc-if><sc-if value="{{ p.noMedia }}" hint-placeholder-val="{{ true }}"><image-slot id="{{ p.slotId }}" shape="rounded" radius="2" placeholder="{{ p.slotHint }}" style="width: 100%; height: 100%;"></image-slot></sc-if>
+                </div>
+              </div>
+              <div style="min-width: 0; display: flex; flex-direction: column; gap: 10px;">
+                <h2 style="margin: 0; font-family: 'Archivo', sans-serif; font-weight: 700; font-size: clamp(24px, 2.4vw, 40px); line-height: 1.05; letter-spacing: -0.8px; text-wrap: pretty; overflow-wrap: anywhere;">{{ p.title }}</h2>
+                <sc-if value="{{ p.hasBullets }}" hint-placeholder-val="{{ false }}">
+                  <ul style="margin: 0; padding: 0 0 0 1.1em; font-size: clamp(13px, 1vw, 16px); line-height: 1.45; letter-spacing: -0.01em; max-height: 6.5em; overflow-y: auto; scrollbar-width: thin; scrollbar-color: rgba(10,12,17,0.25) transparent; display: flex; flex-direction: column; gap: 6px;">
+                    <sc-for list="{{ p.bullets }}" as="b" hint-placeholder-count="5"><li style="text-wrap: pretty;">{{ b }}</li></sc-for>
+                  </ul>
+                </sc-if>
+                <sc-if value="{{ p.noBullets }}" hint-placeholder-val="{{ true }}">
+                  <p data-m="clampless" style="margin: 0; font-size: clamp(13px, 1vw, 16px); line-height: 1.45; letter-spacing: -0.01em; max-height: 6.5em; overflow-y: auto; scrollbar-width: thin; scrollbar-color: rgba(10,12,17,0.25) transparent; text-wrap: pretty;">{{ p.body }}</p>
+                </sc-if>
+              </div>
+            </div>
+            </sc-if>
+            <sc-if value="{{ p.sideBySide }}" hint-placeholder-val="{{ false }}">
+            <div style="flex: 0 0 42%; min-width: 0; padding: 10px 0; box-sizing: border-box; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+              <div style="height: 100%; aspect-ratio: 4 / 5; max-width: 100%;">
+                <sc-if value="{{ p.hasMedia }}" hint-placeholder-val="{{ false }}"><div style="width: 100%; height: 100%; border-radius: 2px; background-size: cover; background-repeat: no-repeat; background-position: center; background-image: {{ p.mediaCss }};"></div></sc-if><sc-if value="{{ p.noMedia }}" hint-placeholder-val="{{ true }}"><image-slot id="{{ p.slotId }}" shape="rounded" radius="2" placeholder="{{ p.slotHint }}" style="width: 100%; height: 100%;"></image-slot></sc-if>
+              </div>
+            </div>
+            <div style="flex: 1 1 auto; min-width: 0; min-height: 0; background: transparent; padding: clamp(26px, 3.6vw, 58px) clamp(28px, 4vw, 64px) clamp(24px, 3vw, 44px); box-sizing: border-box; display: flex; flex-direction: column; gap: 24px; position: relative; overflow: hidden;">
+              <h2 style="margin: 0; font-family: 'Archivo', sans-serif; font-weight: 700; font-size: clamp(30px, 3.4vw, 58px); line-height: 1.05; letter-spacing: -1px; text-wrap: pretty; overflow-wrap: anywhere;">{{ p.title }}</h2>
+              <div style="min-height: 0; max-width: 880px; display: flex; flex-direction: column;">
+                <sc-if value="{{ p.hasBullets }}" hint-placeholder-val="{{ false }}">
+                  <ul style="margin: 0; padding: 0 0 0 1.1em; font-size: clamp(14px, 1.15vw, 19px); line-height: 1.45; letter-spacing: -0.01em; max-height: 100%; overflow-y: auto; scrollbar-width: thin; scrollbar-color: rgba(10,12,17,0.25) transparent; display: flex; flex-direction: column; gap: 6px;">
+                    <sc-for list="{{ p.bullets }}" as="b" hint-placeholder-count="5"><li style="text-wrap: pretty;">{{ b }}</li></sc-for>
+                  </ul>
+                </sc-if>
+                <sc-if value="{{ p.noBullets }}" hint-placeholder-val="{{ true }}">
+                  <p style="margin: 0; font-size: clamp(14px, 1.15vw, 19px); line-height: 1.45; letter-spacing: -0.01em; max-height: 100%; overflow-y: auto; scrollbar-width: thin; scrollbar-color: rgba(10,12,17,0.25) transparent; text-wrap: pretty;">{{ p.body }}</p>
+                </sc-if>
+              </div>
+            </div>
+            </sc-if>
+          </div>
+        </sc-if>
+
+      </div>
+    </sc-for>
+  </div>
+
+  <sc-if value="{{ contactOpen }}" hint-placeholder-val="{{ false }}">
+    <div onClick="{{ closeContact }}" style="position: fixed; inset: 0; z-index: 50; background: rgba(10,12,17,0.28); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); display: grid; place-items: center; padding: 24px;">
+      <div onClick="{{ stop }}" role="dialog" aria-label="Contact" style="width: min(100%, 460px); padding: clamp(22px, 2.6vw, 32px); box-sizing: border-box; border-radius: 2px; background: linear-gradient(160deg, rgba(255,255,255,0.96) 0%, rgba(255,255,255,0.9) 100%); backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px); box-shadow: inset 0 0 0 1px rgba(255,255,255,0.8), 0 30px 70px -20px rgba(20,24,40,0.35); display: flex; flex-direction: column; gap: 18px; font-family: 'Space Mono', ui-monospace, monospace; color: #0A0C11;">
+        <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+          <div style="font-family: 'Archivo', sans-serif; font-weight: 700; font-size: clamp(22px, 2vw, 28px); line-height: 1; letter-spacing: -0.03em;">Contact me</div>
+          <div onClick="{{ closeContact }}" role="button" aria-label="Close" style="width: 36px; height: 36px; display: grid; place-items: center; border-radius: 2px; cursor: pointer; font-size: 20px; line-height: 1;" style-hover="background: rgba(10,12,17,0.06)">✕</div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-radius: 2px; background: rgba(10,12,17,0.05); box-shadow: inset 0 0 0 1px rgba(10,12,17,0.12);">
+          <span style="flex: 1 1 auto; min-width: 0; font-size: clamp(13px, 1vw, 16px); overflow-wrap: anywhere;">d.bodaikina@gmail.com</span>
+          <div onClick="{{ copyEmail }}" role="button" style="flex: 0 0 auto; padding: 8px 14px; border-radius: 2px; background: #0A0C11; color: #fff; font-size: 13px; cursor: pointer; white-space: nowrap; transition: transform 160ms ease;" style-hover="transform: scale(1.04)">{{ copyLabel }}</div>
+        </div>
+        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+          <a href="mailto:d.bodaikina@gmail.com" style="flex: 1 1 auto; text-align: center; padding: 12px 16px; border-radius: 2px; background: #F65A3C; color: #fff; text-decoration: none; font-size: 14px;">Open mail app</a>
+          <a href="https://t.me/bodaikina" target="_blank" rel="noopener" style="flex: 1 1 auto; text-align: center; padding: 12px 16px; border-radius: 2px; box-shadow: inset 0 0 0 1px rgba(10,12,17,0.35); color: #0A0C11; text-decoration: none; font-size: 14px;">Telegram @bodaikina</a>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+  <div id="om-whale" style="position: fixed; top: 0; left: 0; z-index: 9999; pointer-events: none; will-change: transform;">
+    <div ref="{{ whaleWrap }}" style="position: relative; width: 30px; height: 24px; filter: drop-shadow(0 2px 3px rgba(20,40,55,0.28)); will-change: transform;">
+      <img ref="{{ whaleTail }}" src="whale-tail.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%; transform-origin: 66.3% 35.5%; will-change: transform;">
+      <img src="whale-body.png" alt="" style="position: absolute; inset: 0; width: 100%; height: 100%;">
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;whaleCursor&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Whale cursor&quot;},&quot;whaleSize&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:30,&quot;min&quot;:20,&quot;max&quot;:160,&quot;step&quot;:2,&quot;unit&quot;:&quot;px&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Whale cursor&quot;},&quot;tailEnergy&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:1.5,&quot;min&quot;:0.3,&quot;max&quot;:2.2,&quot;step&quot;:0.1,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Whale cursor&quot;}}">
+class Component extends DCLogic {
+  state = { active: 0, sheet: false, caseStep: 0, contact: false, copied: false };
+  whaleWrap = React.createRef();
+  whaleTail = React.createRef();
+  whale = { x: -200, y: -200, tx: -200, ty: -200, vx: 0, vy: 0, dir: 1, wag: 0, phase: 0, last: 0, raf: 0 };
+  onPointer = (e) => { this.whale.tx = e.clientX; this.whale.ty = e.clientY; };
+  whaleTick = (t) => {
+    const w = this.whale, wrap = this.whaleWrap.current, tail = this.whaleTail.current;
+    const on = this.props.whaleCursor ?? true;
+    document.documentElement.toggleAttribute("data-whale-off", !on);
+    if (wrap && tail && on) {
+      const dt = Math.min(3, (t - (w.last || t)) / 16.67); w.last = t;
+      const size = this.props.whaleSize ?? 30, energy = this.props.tailEnergy ?? 1.5;
+      const k = Math.min(1, 0.17 * dt);
+      const nx = w.x + (w.tx - w.x) * k, ny = w.y + (w.ty - w.y) * k;
+      w.vx = nx - w.x; w.vy = ny - w.y; w.x = nx; w.y = ny;
+      if (Math.abs(w.vx) > 0.4) w.dir = w.vx > 0 ? 1 : -1;
+      const speed = Math.hypot(w.vx, w.vy);
+      w.wag += (Math.min(1, speed / 18) - w.wag) * 0.12 * dt;
+      w.phase += (0.09 + w.wag * 0.34) * dt * energy;
+      const amp = (3 + w.wag * 17) * energy;
+      const tilt = Math.max(-14, Math.min(14, w.vy * 1.4)) * w.dir;
+      const hx = size * (w.dir === 1 ? 0.97 : 0.03);
+      wrap.style.width = size + "px"; wrap.style.height = size * 0.798 + "px";
+      wrap.style.transform = "translate(" + (w.x - hx) + "px," + (w.y - size * 0.268) + "px) scaleX(" + w.dir + ") rotate(" + tilt + "deg)";
+      tail.style.transform = "rotate(" + (Math.sin(w.phase) * amp) + "deg)";
+    }
+    w.raf = requestAnimationFrame(this.whaleTick);
+  };
+  lastStep = 0;
+  count = 5;
+  step(dir) {
+    const now = Date.now();
+    if (now - this.lastStep < 520) return true;
+    const next = this.state.active + dir;
+    if (next < 0 || next > this.count - 1) return false;
+    this.lastStep = now;
+    this.setState({ active: next, sheet: false });
+    return true;
+  }
+  onWheel = (e) => {
+    if (window.innerWidth <= 760) return;
+    const d = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
+    if (this.state.sheet || this.state.contact) return;
+    if (Math.abs(d) < 6) return;
+    if (this.step(d > 0 ? 1 : -1)) e.preventDefault();
+  };
+  onKey = (e) => {
+    if (e.key === "Escape" && this.state.contact) { this.setState({ contact: false }); return; }
+    if (this.state.contact) return;
+    if (e.key === "Escape" && this.state.sheet) { this.setState({ sheet: false }); return; }
+    if (this.state.sheet) return;
+    if (e.key === "ArrowRight" || e.key === "ArrowDown") this.step(1);
+    if (e.key === "ArrowLeft" || e.key === "ArrowUp") this.step(-1);
+  };
+  componentDidMount() {
+    window.addEventListener("wheel", this.onWheel, { passive: false });
+    window.addEventListener("keydown", this.onKey);
+    window.addEventListener("pointermove", this.onPointer, { passive: true });
+    this.whale.raf = requestAnimationFrame(this.whaleTick);
+  }
+  componentWillUnmount() {
+    window.removeEventListener("wheel", this.onWheel);
+    window.removeEventListener("keydown", this.onKey);
+    window.removeEventListener("pointermove", this.onPointer);
+    cancelAnimationFrame(this.whale.raf);
+    document.documentElement.removeAttribute("data-whale-off");
+  }
+  goTo(i) { this.lastStep = Date.now(); this.setState({ active: i, sheet: false }); }
+  renderVals() {
+    const data = [
+      ["About me", "I’m a Senior Product AI Designer with 8+ years of experience working in cross-functional teams, mainly in fintech over the past 5 years, with additional experience in e-commerce and edtech. I combine product thinking, AI, UX, and a deep understanding of user behavior and psychology to solve complex problems fast and effectively. Hire me when you need to move fast, solve complex product problems, and build for real user behavior.", "Portrait photo"],
+      ["AI in design", "", ""],
+      ["Showreel", "Design before the AI era. Most of my recent work is under NDA, so I use selected older cases not as a gallery of current UI trends, but as evidence of how I think.", "Showreel", "https://dbodaikina-eng.github.io/portfolio2026/showreel.gif"],
+      ["Case: Cross-Border Invoicing Flow", "", "Invoicing flow — mobile screens", "case-crossborder.png"],
+      ["Biography", [["2025–Now", "AI Product Designer: AI is part of my full product process, from research and hypothesis testing to fast shipping."], ["2021–2025", "Senior/Staff Product Designer in startups and FinTech: owning the product as a whole and leading projects and designers."], ["2016–2021", "Product Designer: Junior to Senior in 3.5 years, 100+ shipped projects, team grew from 2 to 10."], ["2014–2016", "Communication Designer → IT consulting."], ["Before 2014", "Art → Design: six years of design studies after many years of art."]], ""]
+    ];
+    const active = this.state.active;
+    const CASE = {
+      summary: "A step-by-step invoicing flow that adapts to each country's legal requirements — 95% completion in pre-launch testing.",
+      sections: [
+        { label: "Challenge", text: "Cross-border invoicing for different countries, each with local legal requirements and a different set of steps. Long forms on one screen overwhelmed users." },
+        { label: "Approach", text: "I broke the flow into small, logical steps and adapted the questions to each jurisdiction — shorter forms instead of long screens to reduce cognitive load." },
+        { label: "Outcome", text: "95% task completion in pre-launch UX testing (n=15): 44 sec. on the first attempt without training, 30 sec. on repeat attempts. A scalable flow that adapts to new jurisdictions and is optimised step by step." }
+      ],
+      metrics: [
+        { value: "95%", label: "task completion, n=15" },
+        { value: "44 s", label: "first attempt, no training" },
+        { value: "30 s", label: "repeat attempts" }
+      ]
+    };
+    const step = this.state.caseStep;
+    const caseVals = {
+      caseSummary: CASE.summary,
+      caseSections: CASE.sections,
+      caseMetrics: CASE.metrics,
+      sheetOpen: this.state.sheet,
+      openSheet: (e) => { e.stopPropagation(); this.setState({ sheet: true }); },
+      closeSheet: (e) => { e.stopPropagation(); this.setState({ sheet: false }); },
+      caseTabs: CASE.sections.map((s, k) => ({ label: s.label, bg: k === step ? "#0A0C11" : "transparent", fg: k === step ? "#fff" : "#0A0C11", select: (e) => { e.stopPropagation(); this.setState({ caseStep: k }); } })),
+      caseStepText: CASE.sections[step].text,
+      caseStepStatus: "Step " + (step + 1) + " of " + CASE.sections.length,
+      caseOnOutcome: step === CASE.sections.length - 1,
+      caseHasNext: step < CASE.sections.length - 1,
+      caseNextLabel: step < CASE.sections.length - 1 ? CASE.sections[step + 1].label : "",
+      caseNext: (e) => { e.stopPropagation(); this.setState({ caseStep: Math.min(step + 1, CASE.sections.length - 1) }); }
+    };
+    return {
+      ...caseVals,
+      contactOpen: this.state.contact,
+      copyLabel: this.state.copied ? "Copied" : "Copy",
+      openContact: (e) => { e.preventDefault(); e.stopPropagation(); this.setState({ contact: true, copied: false }); },
+      closeContact: (e) => { e.stopPropagation(); this.setState({ contact: false }); },
+      stop: (e) => e.stopPropagation(),
+      copyEmail: async (e) => {
+        e.stopPropagation();
+        try { await navigator.clipboard.writeText("d.bodaikina@gmail.com"); } catch (_) {
+          const ta = document.createElement("textarea"); ta.value = "d.bodaikina@gmail.com"; document.body.appendChild(ta); ta.select(); document.execCommand("copy"); ta.remove();
+        }
+        this.setState({ copied: true });
+        clearTimeout(this.copyT); this.copyT = setTimeout(() => this.setState({ copied: false }), 1800);
+      },
+      whaleWrap: this.whaleWrap,
+      whaleTail: this.whaleTail,
+      panels: data.map(([title, body, slotHint, media], i) => ({
+        num: String(i + 1).padStart(2, "0"),
+        title, body, slotHint,
+        slotId: "panel-" + (i + 1),
+        mediaCss: media ? "url(" + media + ")" : "none",
+        isAbout: i === 0,
+        isCase: i === 3,
+        stacked: i === 2,
+        isBio: i === 4,
+        isQuote: i === 1,
+        sideBySide: false,
+        bullets: Array.isArray(body) ? body.map(b => Array.isArray(b) ? { label: b[0], text: b[1] } : { label: "", text: b }) : [],
+        hasBullets: Array.isArray(body),
+        noBullets: !Array.isArray(body),
+        hasMedia: !!media,
+        noMedia: !media,
+        grow: active === i ? 100 : 1,
+        gapPx: active === i ? "8px" : "0px",
+        expanded: active === i,
+        collapsed: active !== i,
+        open: () => this.goTo(i),
+        next: (e) => { e.stopPropagation(); this.setState({ active: (i + 1) % data.length }); }
+      }))
+    };
+  }
+}
+</script>
+</body>
+</html>
